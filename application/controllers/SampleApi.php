@@ -46,6 +46,14 @@ class SampleApi extends REST_Controller {
         $result = "Berhasil mengupdate data ".$nim.", ".$nama.",  ".$alamat;
         return $this->response($result,200);
     }
+
+    //untuk delete data
+    public function index_delete(){
+        $nim = $this->delete('nim');
+        return $this->response("Berhasil delete data ".$nim,200); 
+    }
+
+
 }
 
 
