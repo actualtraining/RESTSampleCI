@@ -8,6 +8,11 @@
 </head>
 <body>
     <h2>Daftar Mahasiswa</h2>
+
+    <?php 
+     
+            echo $this->session->flashdata('hasil');
+         ?>
     <table border="1">
         <tr><th>Nim</th><th>Nama</th><th>Email</th><th>IPK</th></tr>
         <?php 
@@ -15,7 +20,9 @@
             echo "<tr><td>".$mhs->nim."</td>
             <td>".$mhs->nama."</td>
             <td>".$mhs->email."</td>
-            <td>".$mhs->ipk."</td></tr>";
+            <td>".$mhs->ipk."</td>
+            <td>".anchor('MahasiswaClient/edit/'.$mhs->nim,'Edit')."</td>
+            <td>".anchor('MahasiswaClient/delete/'.$mhs->nim,'Delete')."</td></tr>";
         }
         ?>
     </table>
