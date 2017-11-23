@@ -13,29 +13,29 @@ class SampleApi extends REST_Controller {
         return $this->response($data,200);
     }*/
 
-    /*public function index_get(){
+    public function index_get(){
         //$data = array("budi","bambang","joni","joko");
         $data = array(array("Nim"=>"78999898","Nama"=>"Erick"),
         array("Nim"=>"89898765","Nama"=>"Budi"));
         return $this->response($data,200);
-    }*/
+    }
 
-    public function index_get(){
-        $nim = $this->get('nim');
-        $nama = $this->get('nama');
+    public function index_post(){
+        $nim = $this->post('nim');
+        $nama = $this->post('nama');
 
         $data = array("Nim"=>$nim,"Nama"=>$nama);
         return $this->response($data,200);
     }
 
     //untuk insert data
-    public function index_post(){
+    /*public function index_post(){
         $nim = $this->post('nim');
         $nama = $this->post('nama');
         $alamat = $this->post('alamat');
 
         return $this->response("Data ".$nim." berhasil ditambah !",200);
-    }
+    }*/
 
     //untuk edit data
     public function index_put(){
