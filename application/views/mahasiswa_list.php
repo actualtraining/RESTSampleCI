@@ -22,7 +22,8 @@
             <td>".$mhs->email."</td>
             <td>".$mhs->ipk."</td>
             <td>".anchor('MahasiswaClient/edit/'.$mhs->nim,'Edit')."</td>
-            <td>".anchor('MahasiswaClient/delete/'.$mhs->nim,'Delete')."</td></tr>";
+            <td>".anchor('MahasiswaClient/delete/'.$mhs->nim,'Delete')."</td>
+            </tr>";
         }
         ?>
     </table>

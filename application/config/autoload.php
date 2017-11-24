@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('curl','session','database');
+$autoload['libraries'] = array('database','curl','session');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('form','url');
+$autoload['helper'] = array('authorization','url','form');
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +103,7 @@ $autoload['helper'] = array('form','url');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('jwt');
 
 /*
 | -------------------------------------------------------------------
