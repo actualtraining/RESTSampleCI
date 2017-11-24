@@ -13,7 +13,10 @@ class MahasiswaClient extends CI_Controller{
         //cara pertama tanpa menggunakan curl
         /*$data['mahasiswa'] =  
         json_decode(file_get_contents("http://localhost/restapi/index.php/Mahasiswa"));*/
-       
+        if(isset($_SESSION['key'])){
+            $this->curl->http_header("Authorization",$_SESSION['key']);
+        }
+
         $data['mahasiswa'] = json_decode(
             $this->curl->simple_get($this->API."/Mahasiswa"));
         
@@ -23,14 +26,15 @@ class MahasiswaClient extends CI_Controller{
     public function login(){
         if(isset($_POST['submit'])){
             $username = $this->input->post('username');
-            $username = $this->input->post('password');
+            $password = $this->input->post('password');
             $data = array('username'=>$username,'password'=>$password);
 
             $insert = $this->curl->simple_post($this->API."/Auth/token",$data,
             array(CURLOPT_BUFFERSIZE=>10));
             if($insert){
-                $_SESSION['key'] = $insert->token; 
-                echo var_dump($_SESSION['key']);
+                $hasil = json_decode($insert);
+                $_SESSION['key'] = $hasil->token; 
+                redirect('MahasiswaClient');
             }
             else {
                 die("Login gagal !");
